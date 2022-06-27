@@ -1,0 +1,15 @@
+schema: https://api-sa-east-1.graphcms.com/v2/cl4ocmtmg1r9y01xrc0psdb3s/master
+
+documents: ./src/graphql/**/*.graphql
+
+generates:
+  ./src/graphql/types-generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      reactApolloVersion: 3
+      withHooks: true #cria um hook especifico para cada query
+      withHOC: false #padrão antigo utilizado em classes
+      withComponent: false #evita criar um componente pra cada query

@@ -35,7 +35,7 @@ function Lesson(props: LessonProps) {
                         </span>
                     ) : (
                         <span className="text-sm text-orange-500 font-medium flex items-center gap-2">
-                        <Lock size={20} />
+                            <Lock size={20} />
                             Em breve
                         </span>
                     )

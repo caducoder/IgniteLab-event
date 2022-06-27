@@ -1,22 +1,14 @@
-import { gql, useMutation } from '@apollo/client';
 import { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/logo-ignite.svg'
-
-const CREATE_SUBSCRIBER_MUTATION = gql`
-    mutation CreateSubscriber ($name: String!, $email: String!){
-        createSubscriber(data: {name: $name, email: $email}) {
-            id
-        }
-    }
-`
+import { useCreateSubscriberMutation } from '../graphql/types-generated';
 
 function Subscribe() {
     const navigate = useNavigate()
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
 
-    const [createSubscriber, { loading }] = useMutation(CREATE_SUBSCRIBER_MUTATION)
+    const [createSubscriber, { loading }] = useCreateSubscriberMutation()
 
     const handleSubscribe = async (ev: FormEvent) => {
         ev.preventDefault()
@@ -46,7 +38,9 @@ function Subscribe() {
                 </div>
 
                 <div className='p-8 bg-gray-700 border border-gray-500 rounded'>
-                    <strong className='text-2xl mb-6 block'>Inscreva-se gratuitamente</strong>
+                    <strong className='text-2xl mb-6 block'>
+                        Inscreva-se gratuitamente
+                    </strong>
 
                     <form onSubmit={handleSubscribe} className='flex flex-col gap-2 w-full' action="">
                         <input 

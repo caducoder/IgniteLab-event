@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/logo-ignite.svg'
 import { useCreateSubscriberMutation } from '../graphql/types-generated';
 
@@ -65,6 +65,11 @@ function Subscribe() {
                         >
                             Garantir minha vaga
                         </button>
+                        <Link to='/event' 
+                            className='text-center mt-4 bg-green-500 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 disabled:opacity-50'
+                        >
+                            Já me inscrevi
+                        </Link>
                     </form>
                 </div>
             </div>
